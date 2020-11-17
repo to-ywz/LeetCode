@@ -16,7 +16,7 @@
   
 
 ### 2.流程图
->![alte flow1](flow1.png)
+>!(https://github.com/to-ywz/LeetCode/blob/master/Easy/C/P1/flow1.png)
 
 ### 3.代码
 >
