@@ -62,7 +62,7 @@
     
 
 ### 2.流程图
-![alt 属性文本](\flow7.jpg)
+![alt 属性文本](flow7.jpg)
 <!-- ```flow
 st=>start: 开始
 cond1=>condition: res > MAX
