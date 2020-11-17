@@ -20,7 +20,8 @@
     
 
 ### 2.流程图
-```flow
+![alt 属性文本](\flow7.png)
+<!-- ```flow
 st=>start: 开始
 cond1=>condition: res > MAX
 cond2=>condition: x == 0
@@ -34,7 +35,7 @@ cond2(yes)->e
 cond2(no)->cond1
 cond1(no)->op2(right)->op3(right)->cond2
 cond1(yes)->op1(left)->e
-```
+``` -->
 ### 3.代码
 ```c
 int reverse(int x)
