@@ -16,7 +16,7 @@
   
 
 ### 2.流程图
->!(https://github.com/to-ywz/LeetCode/blob/master/Easy/C/P1/flow1.png)
+>![alt flow1](flow.png)
 
 ### 3.代码
 >
