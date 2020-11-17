@@ -16,7 +16,7 @@
   
 
 ### 2.流程图
->![alt flow1](flow.png)
+>![alte flow1](flow1.png)
 
 ### 3.代码
 >
