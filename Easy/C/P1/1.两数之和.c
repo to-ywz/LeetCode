@@ -26,6 +26,7 @@ int *twoSum(int *nums, int numsSize, int target, int *returnSize)
     int *resArray = (int *)malloc(2 * sizeof(int));
     *returnSize = 0;
 
+    // 复制数组,存储下数组的值和其序号
     NumArray *numArray = (NumArray *)malloc(sizeof(NumArray) * numsSize);
     for (int i = 0; i < numsSize; i++)
     {
@@ -33,11 +34,14 @@ int *twoSum(int *nums, int numsSize, int target, int *returnSize)
         numArray[i].value = nums[i];
     }
 
+    // 根据值大小 快速排序
     qsort(numArray, numsSize, sizeof(numArray[0]), cmp);
 
     for (int i = 0; i < numsSize; i++)
     {
         NumArray key = {.value = target - numArray[i].value};
+
+        // 也是 循环 但采用二分查找 时间复杂度 (logn);
         NumArray *res = bsearch(&key, &numArray[i + 1], numsSize - i - 1, sizeof(numArray[0]), cmp);
 
         if (res)
@@ -49,5 +53,5 @@ int *twoSum(int *nums, int numsSize, int target, int *returnSize)
     }
     return resArray;
 }
-
+// 总 时间复杂度 nlogn
 // @lc code=end
