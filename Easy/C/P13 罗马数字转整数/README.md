@@ -16,17 +16,26 @@
 >>      * 是,   判断 `s[i+1]` 是否 存在 受体罗马数字 ,
 >>          * 是    减去本身
 >>          * 不是  正常累加
->> * 直到循环结束, sum 即为饭hi结果
-
+>> * 直到循环结束, sum 即为 返回 结果
+>> 
+> 2020.12.4  
+>我还是尝试出了一种 Hash 解法,大致讲一下思路  
+>```
+>   罗马数字都是 字符 在 C 语言里 字符以 ASCII 的形式连续存储, 这意味我们只需要开一个大小为 26 的 数组就等价于 26个 英文字母,以英文字母的顺序 为 键名 罗马数字 所代表的数值 为 键值, 这样就构成了一个 具有常数即访问速率的 HashMap 了
+>余下的就是 循环 累加 部分了,这里需要注意 每次累加的时候需要断一下 上一个字母的键值是不是小于当前字母的键值,小于就要在res 上减去 2 倍的 上一个字母的键值. res 即为最返回值
+>```
 
 
 ### 2.流程图
-
+>解法1
 > ![alte](flow13.png)
+>2020.12.4  
+>解法2 没有流程图
 
 
 ### 3.代码
 
+>解法 一
 >```c
 > int romanToInt(char *s)
 >{
@@ -54,4 +63,30 @@
 >    }
 >    return sum;
 >}
+>```
+> 解法二  
+>```c
+> int romanToInt(char *s)
+> {
+>     int romanHash[26] = {0};
+>     romanHash['I' - 'A'] = 1;
+>     romanHash['V' - 'A'] = 5;
+>     romanHash['X' - 'A'] = 10;
+>     romanHash['L' - 'A'] = 50;
+>     romanHash['C' - 'A'] = 100;
+>     romanHash['D' - 'A'] = 500;
+>     romanHash['M' - 'A'] = 1000;
+> 
+>     int res = 0, preNum = 0;
+>     for (int i = 0; s[i]; i++)
+>     {
+>         if (preNum < romanHash[s[i] - 'A'])
+>         {
+>             res -= preNum * 2;
+>         }
+>         preNum = romanHash[s[i] - 'A'];
+>         res += preNum;
+>     }
+>     return res;
+> }
 >```
