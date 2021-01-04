@@ -10,22 +10,22 @@
 bool isIsomorphic(char *s, char *t)
 {
     int len = strlen(s);
-    unsigned char sHash[26] = {0}, tHash[26] = {0};
+    unsigned char sHash[128] = {0}, tHash[128] = {0};
 
     if (!len)
         return true;
 
     for (int i = 0; i < len; i++)
     {
-        if (!sHash[s[i] - 'a'])
+        if (!sHash[s[i]])
         {
-            sHash[s[i] - 'a'] = i + 1;
+            sHash[s[i]] = i + 1;
         }
-        if (!tHash[t[i] - 'a'])
+        if (!tHash[t[i]])
         {
-            tHash[t[i] - 'a'] = i + 1;
+            tHash[t[i]] = i + 1;
         }
-        if (tHash[t[i] - 'a'] != sHash[s[i] - 'a'])
+        if (tHash[t[i]] != sHash[s[i]])
             return false;
     }
     return true;
