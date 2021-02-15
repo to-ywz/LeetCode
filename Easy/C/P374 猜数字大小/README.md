@@ -26,6 +26,7 @@
 
 ## 
 <h2 id="2">3 代码</h2>  
+
 ```c
 int guessNumber(int n)
 {
